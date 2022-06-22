@@ -16,7 +16,7 @@ func message(w http.ResponseWriter, req *http.Request) {
 	loc, _ := time.LoadLocation("America/Sao_Paulo")
 	currentTime := time.Now().In(loc)
 	timeFormatted := currentTime.Format("2006-01-02 15:04:05")
-	w.WriteHeader(http.StatusCreated)
+	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
 	resp := &Response{
 		Message:  "Hello world!",
