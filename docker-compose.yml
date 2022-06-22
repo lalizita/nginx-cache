@@ -1,7 +1,5 @@
 services:
   nginx:
-    build:
-      context: .
     image: nginx:alpine
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
@@ -9,10 +7,8 @@ services:
     ports:
       - "8081:8080"
   server:
-    image: golang:1.16-alpine
-    build: server
+    build:
+      context: server
     container_name: golang_app
     ports:
       - "8082:8082"
-    volumes:
-      - .server:/app
